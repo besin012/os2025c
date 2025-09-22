@@ -1,0 +1,12 @@
+Go 명령어
+go mod init 프로젝트 폴더명
+go run  파일명.go
+go build  파일명.go (exe파일 만들기)
+
+깃 명령어
+git reset
+git merge 브랜치명
+
+기타
+.gitignore 파일 생성 (*.exe)
+package, import, func, Println, Printf, {}, ;
