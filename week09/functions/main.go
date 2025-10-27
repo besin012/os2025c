@@ -1,37 +1,78 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"log"
+	"os"
+	"strconv"
+	"strings"
 )
 
-func swap(first *int, second *int) {
-	var temp int = 0
-	temp = *first
-	*first = *second
-	*second = temp
-	fmt.Println(*first, *second)
+func GetFloat() (float64, error) {
+	reader := bufio.NewReader(os.Stdin)
+	input, err := reader.ReadString('\n')
+	if err != nil {
+		return 0, err
+	}
+
+	input = strings.TrimSpace(input)
+	number, err := strconv.ParseFloat(input, 64)
+	if err != nil {
+		return 0, err
+	}
+	return number, nil
 }
 func main() {
-	a, b := 10, 20
-	fmt.Println(a, b)
-	swap(&a, &b) // call by pointer
-	fmt.Println(a, b)
-	//fmt.Printf("%0.3f\n", math.Sqrt(-9.3))
+	fmt.Print("점수 입력 : ")
+	score, err := GetFloat()
+	if err != nil {
+		log.Fatal(err)
+	}
+	status := ""
+	if score >= 90 {
+		status = "합격!"
+	} else {
+		status = "불합격"
+	}
+	fmt.Printf("%.2f점은 %v\n", score, status)
 }
 
-// if score >= 60 {
-// 	fmt.Println(score, "Pass")
-// } else {
-// 	fmt.Println(score, "Fail")
+// func swap(first *int, second *int) {
+// 	var temp int = 0
+// 	temp = *first
+// 	*first = *second
+// 	*second = temp
+// 	fmt.Println(*first, *second)
+// }
+// func main() {
+// 	a, b := 10, 20
+// 	fmt.Println(a, b)
+// 	swap(&a, &b) // call by pointer
+// 	fmt.Println(a, b)
+// 	//fmt.Printf("%0.3f\n", math.Sqrt(-9.3))
 // }
 
-// shadowing
+// func paintNeeded(width float64, height float64) (float64, error) {
+// 	if width < 0 {
+// 		return 0, fmt.Errorf("a width of %0.2f is invalid", width)
+// 	}
+// 	if height < 0 {
+// 		return 0, fmt.Errorf("a height of %0.2f is invalid", height)
+// 	}
+// 	area := width * height
+// 	return area / 10.0, nil
+// }
 
-// var float64 float64 = 2.71
-// var f float64 = 3.991
-// fmt.Println(float64)
-// fmt.Println(f)
-
-// var fmt float64 = 2.71
-// fmt.Println(fmt)
-//}
+// func main() {
+// 	amount, err := paintNeeded(5.2, 3.5)
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// 	fmt.Printf("%0.2f liters needed\n", amount)
+// 	amount, err = paintNeeded(4.2, -3.0)
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// 	fmt.Printf("%0.2f liters needed\n", amount)
+// }
