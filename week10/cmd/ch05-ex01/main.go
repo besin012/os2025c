@@ -22,12 +22,15 @@ func main() {
 	// arrayInt[1] = 2
 	// fmt.Println(arrayInt[1])
 
-	arrayBool := [2]bool{true, false}
-	arrayInt := [3]int{-9, 11, 7}
-	//for i := 0; i < 3; i++ {
-	for i := 0; i < len(arrayInt); i++ {
-		fmt.Println(i, arrayBool[i])
-		fmt.Println(i, arrayInt[i])
-	}
+	//arrayBool := [2]bool{true, false}
+	// arrayInt := [3]int{-9, 11, 7}
+	// for i := 0; i < 3; i++ {
+	// for i := 0; i < len(arrayInt); i++ {
+	//  fmt.Println(i, arrayBool[i])
+	// 	fmt.Println(i, arrayInt[i])
 
+	number := [3]int{-9, 11, 7}
+	for i, number := range number {
+		fmt.Println(i, number)
+	}
 }
