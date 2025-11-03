@@ -1,18 +1,11 @@
-Go 명령어
-go mod init 프로젝트폴더명
-go run 파일명.go
-go build 파일명.go
+package greeting
 
+import "fmt"
 
-리눅스 명령어
-cp 원본파일 복사본파일
+func Hello() {
+	fmt.Printf("Hello!\n")
+}
 
-
-깃 명령어
-git reset
-git merge 브랜치명
-
-
-기타
-.gitignore 파일 생성 (*.exe)
-package, import, func, Println, Printf, {}, ;
+func Hi() {
+	fmt.Println("Hi~")
+}
