@@ -5,8 +5,9 @@ import "fmt"
 func main() {
 	subjects := [4]string{"GO", "Javascript", "Python", "Linux"}
 	subjectsSlice := subjects[:3] //slicing
-	//subjects[0] = "Java"
-	subjectsSlice[0] = "Database"
+	subjects[0] = "Java"
+	subjectsSlice = append(subjectsSlice, "GO") // list.append("GO")
+	//subjectsSlice = append(subjectsSlice, "GO", "DB")
 	for _, subject := range subjects {
 		fmt.Println((subject))
 	}
